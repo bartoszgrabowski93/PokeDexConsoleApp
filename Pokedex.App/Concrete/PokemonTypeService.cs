@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokeDex_Console_App
+namespace Pokedex.App.Concrete
 {
-    internal class PokemonTypeService
+    public class PokemonTypeService
     {
-        private List<PokemonType> pokemonTypes;
+        private List<Type> pokemonTypes;
         public PokemonTypeService() 
         {
-            pokemonTypes = new List<PokemonType>();
+            pokemonTypes = new List<Type>();
         }
 
         public void GetAllTypesList()

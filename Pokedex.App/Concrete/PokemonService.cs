@@ -1,0 +1,83 @@
+﻿using Pokedex.App.Common;
+using Pokedex.Domain;
+using Pokedex.Domain.Entity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pokedex.App.Concrete
+{
+    public class PokemonService : BaseService<Pokemon>
+    {
+        public List<Pokemon> Pokemons { get; set; }
+
+        public PokemonService() 
+        {
+            Pokemons = new List<Pokemon>();
+        }
+        
+        public void AddNewPokemon(Pokemon pokemon) {
+            Pokemon newPokemon = new Pokemon();       
+            newPokemon.Id = pokemon.Id;
+            newPokemon.Name = pokemon.Name;
+            Pokemons.Add(newPokemon);
+        }       
+
+        public void RemovePokemon(int id)
+        {
+            Pokemon pokemonToRemove = new Pokemon();
+            foreach (var pokemon in Pokemons)
+            {
+                if (pokemon.Id == id)
+                {
+                    pokemonToRemove = pokemon;
+                    break;
+                }
+            }
+            Pokemons.Remove(pokemonToRemove);         
+
+        }
+
+        public List<Pokemon> GetAllPokemon()
+        {
+            var result = new List<Pokemon>();
+            foreach (var pokemon in Pokemons)
+            {
+                result.Add(pokemon);
+            }
+            return result;
+        }
+
+        public void ShowAllPokemon(List<Pokemon> pokemons)
+        {
+            var result = new List<Pokemon>();
+            result = pokemons;
+            foreach (var pokemon in result)
+            {
+                Console.WriteLine($"Number:{pokemon.Id}, Name: {pokemon.Name}"); ;
+            }            
+        }
+
+       
+
+        public void EditPokemon(Pokemon pokemonAcquiredData)
+        {         
+            Pokemon pokemonNewData = new Pokemon();
+            pokemonNewData = pokemonAcquiredData;          
+            var pokemonToRemove = new Pokemon();
+            foreach (var pokemon in Pokemons)
+            {
+                if (pokemon.Id == pokemonNewData.Id)
+                {
+                    pokemonToRemove = pokemon;
+                }
+            }
+            Pokemons.Remove(pokemonToRemove);            
+            Pokemons.Add(pokemonNewData);
+        }
+
+       
+    }
+}

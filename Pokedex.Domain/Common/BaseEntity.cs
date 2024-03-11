@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokeDex_Console_App
+namespace Pokedex.Domain.Common
 {
-    internal class MenuAction
+    public class BaseEntity : AuditableModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string MenuName { get; set; }
-
     }
 }

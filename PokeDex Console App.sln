@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeDex Console App", "PokeDex Console App\PokeDex Console App.csproj", "{8516C23D-31AB-45C2-82D3-978032B5770F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeDex", "PokeDex Console App\PokeDex.csproj", "{8516C23D-31AB-45C2-82D3-978032B5770F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokedex.App", "Pokedex.App\Pokedex.App.csproj", "{E56C7AA3-912A-48A8-BAFB-5A824D13111F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokedex.Domain", "Pokedex.Domain\Pokedex.Domain.csproj", "{41E41412-AADC-4121-BA84-58E8E6576757}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8516C23D-31AB-45C2-82D3-978032B5770F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8516C23D-31AB-45C2-82D3-978032B5770F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8516C23D-31AB-45C2-82D3-978032B5770F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56C7AA3-912A-48A8-BAFB-5A824D13111F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56C7AA3-912A-48A8-BAFB-5A824D13111F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56C7AA3-912A-48A8-BAFB-5A824D13111F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56C7AA3-912A-48A8-BAFB-5A824D13111F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E41412-AADC-4121-BA84-58E8E6576757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E41412-AADC-4121-BA84-58E8E6576757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E41412-AADC-4121-BA84-58E8E6576757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E41412-AADC-4121-BA84-58E8E6576757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
