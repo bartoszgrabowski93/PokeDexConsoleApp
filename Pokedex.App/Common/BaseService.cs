@@ -53,6 +53,12 @@ namespace Pokedex.App.Common
                 entity = item;
             }            
         }
-      
+                
+        public T GetItemById(int id)
+        {
+            var entity = Items.FirstOrDefault(p => p.Id == id);
+            return entity;
+
+        }
     }
 }

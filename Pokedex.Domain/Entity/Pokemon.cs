@@ -15,5 +15,12 @@ namespace Pokedex.Domain.Entity
         public Type PrimaryType { get; set; }
         public Type SecoundaryType { get; set; }
 
+        public Pokemon(int id, string name) {
+            Id = id;
+            Name = name;
+        }
+        public Pokemon()
+        {            
+        }
     }
 }

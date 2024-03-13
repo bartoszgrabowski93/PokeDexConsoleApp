@@ -13,5 +13,6 @@ namespace Pokedex.App.Abstract
         void AddItem(T item);
         void RemoveItem(T item);
         void UpdateItems(T item);
+        T GetItemById(int id);
     }
 }

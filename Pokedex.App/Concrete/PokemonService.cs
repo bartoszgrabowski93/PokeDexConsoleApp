@@ -78,6 +78,31 @@ namespace Pokedex.App.Concrete
             Pokemons.Add(pokemonNewData);
         }
 
-       
+        public Pokemon GetPokemonById(int id)
+        {
+            var result = new Pokemon();
+            foreach(var pokemon in Pokemons)
+            {
+                if (pokemon.Id == id)
+                {
+                    result = pokemon;
+                }
+            }
+            return result;
+        }
+
+        public Pokemon GetPokemonByName(string name)
+        {
+            var result = new Pokemon();
+            foreach (var pokemon in Pokemons)
+            {
+                if (pokemon.Name == name)
+                {
+                    result = pokemon;
+                }
+            }
+            return result;
+        }
+
     }
 }

@@ -18,6 +18,12 @@ namespace Pokedex.App.Managers
             _pokemonService = new PokemonService();
             _actionService = actionService;
         }
+        public PokemonManager()
+        {
+            _pokemonService = new PokemonService();
+            
+        }
+
         public Pokemon AddNewPokemonView()
         {
             Pokemon pokemon = new Pokemon();
@@ -32,7 +38,7 @@ namespace Pokedex.App.Managers
             return pokemon;
         }
 
-        public int RemovePokemonView()
+        public int RemovePokemonByIdView()
         {
             Console.WriteLine("Type pokemon id you would like to remove: ");
             var userChoice = Console.ReadLine();
@@ -62,6 +68,24 @@ namespace Pokedex.App.Managers
             pokemonNewData.Name = pokemonNewName;
             return pokemonNewData;
 
+        }
+
+        public int GetPokemonByIdView()
+        {
+            Console.WriteLine("Please insert pokemon number you want to search: ");
+            Console.WriteLine(" ");
+            string pokemonNumberString = Console.ReadLine();
+            int pokemonNumber;
+            Int32.TryParse(pokemonNumberString, out pokemonNumber);
+            return pokemonNumber;
+        }
+
+        public string GetPokemonByNameView()
+        {
+            Console.WriteLine("Please insert pokemon name you want to search: ");
+            Console.WriteLine(" ");
+            string pokemonName = Console.ReadLine();           
+            return pokemonName;
         }
 
     }

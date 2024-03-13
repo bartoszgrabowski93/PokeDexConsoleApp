@@ -37,7 +37,7 @@ public class Program
                     pokemonService.AddNewPokemon(newPokemon);
                     break;
                 case '2':
-                    var removePokemonId = pokemonManager.RemovePokemonView();
+                    var removePokemonId = pokemonManager.RemovePokemonByIdView();
                     pokemonService.RemovePokemon(removePokemonId);
                     break;
                 case '3':               
