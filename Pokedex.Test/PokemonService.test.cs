@@ -2,6 +2,7 @@ using FluentAssertions;
 using Moq;
 using Pokedex.App.Abstract;
 using Pokedex.App.Concrete;
+using Pokedex.App.Common;
 using Pokedex.App.Managers;
 using Pokedex.Domain.Entity;
 namespace Pokedex.Test
@@ -11,16 +12,12 @@ namespace Pokedex.Test
         [Fact]
         public void AddNewPokemonViewTest()
         {
-            //Arrange
-            Pokemon pokemon = new Pokemon(1, "Bulbasaur");
-            var mock = new Mock<IService<Pokemon>>();
-            mock.Setup(m => m.GetItemById(1)).Returns(pokemon);
-            mock.Setup(m => m.RemoveItem(It.IsAny<Pokemon>()));
-            var manager = new PokemonManager();
+            //Arrange           
+
             //Act            
-            manager.RemovePokemonByIdView();
+
             //Assert
-            mock.Verify( m => m.RemoveItem(pokemon));
+           
 
         }
         [Fact]

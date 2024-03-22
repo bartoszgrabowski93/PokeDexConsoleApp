@@ -3,12 +3,17 @@ using Pokedex.App.Abstract;
 using Pokedex.App.Concrete;
 using Pokedex.Domain.Entity;
 using Pokedex.App.Managers;
+using System.Linq;
+using System.Xml.Serialization;
+
 
 
 public class Program
 {
+    const string FILE_NAME=(@"C:\Users\Bartosz\Desktop\Temp\pokemon.csv");
     private static void Main(string[] args)
     {
+          
         MenuActionService actionService = new MenuActionService();
         PokemonManager pokemonManager = new PokemonManager(actionService);
         PokemonService pokemonService = new PokemonService();
@@ -24,9 +29,10 @@ public class Program
             {
                 Console.WriteLine($"{mainMenu[i].Id}.{mainMenu[i].Name}");
             }
-
+            var fileService = new FileService();
             var allPokemon = new List<Pokemon>();
-            allPokemon = pokemonService.GetAllPokemon();
+            // allPokemon = fileService.LoadXmlFile(FILE_NAME);            
+            bool append = true;
 
             var userChoice = Console.ReadKey();
             switch (userChoice.KeyChar)
@@ -41,14 +47,14 @@ public class Program
                     pokemonService.RemovePokemon(removePokemonId);
                     break;
                 case '3':               
-                    pokemonService.ShowAllPokemon(allPokemon);
+                    pokemonService.ShowAllPokemon();
                     break;
                 case '4':
                     var pokemonToEditId = pokemonManager.EditPokemonView(allPokemon);
                     pokemonService.EditPokemon(pokemonToEditId);
                     break;
-                case '5':
-
+                case '5':                    
+                    fileService.SaveToXMLFile(FILE_NAME, allPokemon, "Pokemon", append);
                     break;
                 default:
                     Console.WriteLine("Unnkown command. Please select one of the following numbers: ");

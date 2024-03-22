@@ -19,10 +19,7 @@ namespace Pokedex.App.Concrete
         }
         
         public void AddNewPokemon(Pokemon pokemon) {
-            Pokemon newPokemon = new Pokemon();       
-            newPokemon.Id = pokemon.Id;
-            newPokemon.Name = pokemon.Name;
-            Pokemons.Add(newPokemon);
+            Pokemons.Add(pokemon);
         }       
 
         public void RemovePokemon(int id)
@@ -50,11 +47,9 @@ namespace Pokedex.App.Concrete
             return result;
         }
 
-        public void ShowAllPokemon(List<Pokemon> pokemons)
-        {
-            var result = new List<Pokemon>();
-            result = pokemons;
-            foreach (var pokemon in result)
+        public void ShowAllPokemon()
+        {            
+            foreach (var pokemon in Pokemons)
             {
                 Console.WriteLine($"Number:{pokemon.Id}, Name: {pokemon.Name}"); ;
             }            

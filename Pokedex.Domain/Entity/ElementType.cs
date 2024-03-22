@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pokedex.Domain.Entity
 {
-    public class Type : BaseEntity
+    public class ElementType : BaseEntity
     {        
         public string Name { get; set; }      
 

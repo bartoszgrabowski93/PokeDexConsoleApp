@@ -1,4 +1,6 @@
-﻿using Pokedex.App.Concrete;
+﻿using Pokedex.App.Abstract;
+using Pokedex.App.Common;
+using Pokedex.App.Concrete;
 using Pokedex.Domain.Entity;
 using System;
 using System.Collections.Generic;
@@ -8,32 +10,34 @@ using System.Threading.Tasks;
 
 namespace Pokedex.App.Managers
 {
-    public class PokemonManager
+    public class PokemonManager  
     {   
         private readonly MenuActionService _actionService;
+    
         private PokemonService _pokemonService;
         private List<Pokemon> pokemons;
-        public PokemonManager(MenuActionService actionService)
+        public PokemonManager(MenuActionService actionService) 
         {
             _pokemonService = new PokemonService();
             _actionService = actionService;
-        }
+        }     
+
         public PokemonManager()
         {
             _pokemonService = new PokemonService();
             
         }
-
+       
         public Pokemon AddNewPokemonView()
         {
             Pokemon pokemon = new Pokemon();
-            Console.WriteLine("Please insert pokemon number: ");
+            Console.WriteLine("Type new pokemon number: ");
             string newPokemonNumberString = Console.ReadLine();
-            int newPokemonNumber = 0;
+            int newPokemonNumber;
             Int32.TryParse(newPokemonNumberString, out newPokemonNumber);
-            Console.WriteLine("Please insert pokemon name: ");
-            string newPokemonName = Console.ReadLine();
             pokemon.Id = newPokemonNumber;
+            Console.WriteLine("Type new pokemon name: ");
+            string newPokemonName = Console.ReadLine();            
             pokemon.Name = newPokemonName;
             return pokemon;
         }
@@ -87,6 +91,8 @@ namespace Pokedex.App.Managers
             string pokemonName = Console.ReadLine();           
             return pokemonName;
         }
+
+        
 
     }
 }

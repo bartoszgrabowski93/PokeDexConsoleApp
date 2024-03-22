@@ -36,7 +36,7 @@ namespace Pokedex.App.Concrete
             AddItem(new MenuAction(2, "Remove pokemon", "Main"));
             AddItem(new MenuAction(3, "Show all pokemons", "Main"));
             AddItem(new MenuAction(4, "Edit pokemon", "Main"));
-            AddItem(new MenuAction(5, "Show type menu", "Main"));
+            AddItem(new MenuAction(5, "Save pokemons", "Main"));
 
 
             AddItem(new MenuAction(1, "Add new type", "TypeMenu"));
