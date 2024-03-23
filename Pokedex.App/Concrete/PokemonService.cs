@@ -53,9 +53,7 @@ namespace Pokedex.App.Concrete
             {
                 Console.WriteLine($"Number:{pokemon.Id}, Name: {pokemon.Name}"); ;
             }            
-        }
-
-       
+        }       
 
         public void EditPokemon(Pokemon pokemonAcquiredData)
         {         
@@ -97,6 +95,14 @@ namespace Pokedex.App.Concrete
                 }
             }
             return result;
+        }
+
+        public void AddPokemonList(List<Pokemon> list)
+        {
+            foreach (var pokemon in list)
+            {
+                Pokemons.Add(pokemon);
+            }
         }
 
     }

@@ -20,23 +20,15 @@ namespace Pokedex.App.Concrete
         
         public void SaveToXMLFile(string filePath, List<Pokemon> objectToWrite, string objectName, bool append) 
         {
-            
-            _root.ElementName = objectName;
-            _root.IsNullable = true;
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Pokemon>), _root);
+            XmlRootAttribute root = new XmlRootAttribute();
+            root.ElementName = objectName;
+            root.IsNullable = true;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Pokemon>), root);
             using StreamWriter sw = new StreamWriter(filePath);
             serializer.Serialize(sw, objectToWrite);
 
         }
 
-        public List<Pokemon> LoadXmlFile(string filePath)
-        {
-            String xml = File.ReadAllText(filePath);
-            StringReader stringReader = new StringReader(xml);            
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Pokemon>), _root);
-            var xmlList = (List<Pokemon>)xmlSerializer.Deserialize(stringReader);
-            return xmlList;
-        }
- 
+        
     }
 }

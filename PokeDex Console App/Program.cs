@@ -10,13 +10,25 @@ using System.Xml.Serialization;
 
 public class Program
 {
-    const string FILE_NAME=(@"C:\Users\Bartosz\Desktop\Temp\pokemon.csv");
+    const string FILE_NAME=(@"D:\Temp\pokemon.xml");
     private static void Main(string[] args)
     {
           
         MenuActionService actionService = new MenuActionService();
         PokemonManager pokemonManager = new PokemonManager(actionService);
         PokemonService pokemonService = new PokemonService();
+
+        var fileService = new FileService();
+        var allPokemon = new List<Pokemon>();
+        XmlRootAttribute root = new XmlRootAttribute();
+        root.ElementName = "Pokemon";
+        root.IsNullable = true;
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Pokemon>), root);
+        string xml = File.ReadAllText(FILE_NAME);
+        StringReader stringReader = new StringReader(xml);
+
+        var xmlPokemons = (List<Pokemon>)xmlSerializer.Deserialize(stringReader);
+        pokemonService.AddPokemonList(xmlPokemons);
 
         Console.WriteLine("Hello!");
         Console.WriteLine("Wellcome to the PokedexApp.");
@@ -28,10 +40,8 @@ public class Program
             for (int i = 0; i < mainMenu.Count; i++)
             {
                 Console.WriteLine($"{mainMenu[i].Id}.{mainMenu[i].Name}");
-            }
-            var fileService = new FileService();
-            var allPokemon = new List<Pokemon>();
-            // allPokemon = fileService.LoadXmlFile(FILE_NAME);            
+            }            
+            
             bool append = true;
 
             var userChoice = Console.ReadKey();
@@ -53,7 +63,8 @@ public class Program
                     var pokemonToEditId = pokemonManager.EditPokemonView(allPokemon);
                     pokemonService.EditPokemon(pokemonToEditId);
                     break;
-                case '5':                    
+                case '5':
+                    allPokemon = pokemonService.GetAllPokemon();
                     fileService.SaveToXMLFile(FILE_NAME, allPokemon, "Pokemon", append);
                     break;
                 default:
